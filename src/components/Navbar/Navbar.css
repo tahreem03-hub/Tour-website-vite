@@ -1,0 +1,167 @@
+.navbar {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    width: 95%;
+    height: 80px;
+    border-radius: 13px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10; /*added by gpt*/
+}
+
+.navbar-logo {
+    color: #222;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    /*6 bcx we have 6 properties each one will take auto*/
+    grid-gap: 10px;
+    /* to add gap between properties*/
+    list-style: none;
+    /* to remove bullet points*/
+    align-items: center;
+
+}
+
+.nav-links {
+    text-decoration: none;
+    /* to remove line below each property*/
+    color: #222;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    /*after padding icon and title was in different lines to make then in same line*/
+}
+
+.nav-links i {
+    padding-right: 10px;
+    /* to add space in icon and title*/
+}
+
+.nav-links:hover {
+    background-color: #01959a;
+    color: #fff;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    /* smooth transition*/
+}
+
+.nav-links-mobile {
+    display: none;
+    /*hide signup button*/
+}
+
+button {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    /*button will be in 1 row*/
+    border-radius: 0.3em;
+    /*curve thecorners*/
+    font-size: 1rem;
+    font-weight: 600;
+    /*font bold*/
+    border: none;
+    /* after adding border-radius black line is shown on border to remove this line*/
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    /*learn*/
+}
+
+button:hover {
+    background-color: #151516;
+    color: #fff;
+}
+
+.menu-icons {
+    /* hide bar and table icons*/
+    display: none;
+}
+
+@media screen and (max-width:850px) {
+
+    .navbar {
+        /* to pop up nav bar on top of menu bar*/
+        z-index: 99;
+        /* adding or removing this line is not affecting instead only nav-menu z-index is working*/
+    }
+
+    .nav-menu {
+        display: flex;
+        /* difference in fex and grid*/
+        flex-direction: column;
+        justify-content: flex-start;
+        /*learn*/
+        background-color: #fff;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        /*learn*/
+        top: 0;
+        left: -100%;
+        opacity: 0;
+        align-items: stretch;
+        padding: 80px 0 30px 0;
+        /*top left bottom right*/
+        margin: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        opacity: 1;
+        z-index: -1;
+    }
+
+    .nav-links {
+        display: block;
+        text-align: center;
+        /*if didn't added this*/
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 2rem 0;
+    }
+
+    .nav-links:hover {
+        background-color: #01959a;
+        transition: none;
+    }
+
+    button {
+        display: none;
+    }
+
+    .nav-links-mobile {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        margin: auto;
+        border-radius: 4px;
+        width: 80%;
+        background: #01959a;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .menu-icons {
+        display: block;
+    }
+
+    .menu-icons i {
+        /* why didn't add this in menu-icons*/
+        color: #222;
+    }
+}
